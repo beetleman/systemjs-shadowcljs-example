@@ -6,9 +6,21 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="text/javascript" src="./js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
+
+    <script type="systemjs-importmap">
+     {
+	 "imports": {
+	     "acme": "./js/main.js"
+	 }
+     }
+    </script>
+
     <script type="text/javascript">
-      acme.app.init({userName: "🐐", root: document.getElementById("root")});
+     System.import('acme').then(acme => {
+	 acme.app.init({userName: "🐐", root: document.getElementById("root")});
+     });
     </script>
   </body>
 </html>
