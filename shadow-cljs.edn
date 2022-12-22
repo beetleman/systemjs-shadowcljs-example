@@ -1,0 +1,17 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["dev"
+  "src"
+  "test"]
+
+ :dependencies
+ [[reagent "1.1.1"]]
+
+ :dev-http {8080 "public"}
+
+ :builds
+ {:frontend
+  {:target :browser
+   :output-dir "public/js"
+   :modules {:main {:entries [acme.app]}}
+   :release {:output-dir "lib"}}}}
